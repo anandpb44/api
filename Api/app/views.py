@@ -41,7 +41,7 @@ def fun3(req,d):
         demo=Student.objects.get(pk=d)
     except Student.DoesNotExist:
         return HttpResponse('invalid')
-    if reg.method=="GET":
+    if req.method=="GET":
         s=Model_serializer(demo)
         return JsonResponse(s.data)
     elif req.method=='PUT':
